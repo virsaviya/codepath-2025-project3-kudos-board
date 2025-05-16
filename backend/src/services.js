@@ -1,13 +1,19 @@
+const { RECENT } = require('./utils');
+
 const { PrismaClient } = require('../prisma/generated/client');
 const prisma = new PrismaClient({
   // log: ['warn', 'error'],
 });
 
 const getBoards = async (filter, query) => {
+  if (filter === RECENT) {
+    // recent logic here
+  }
+  const filterBy = filter !== '' ? { category: filter } : {};
   const boards = await prisma.board.findMany({
     include: { cards: true },
     where: {
-      category: filter,
+      ...filterBy,
       title: {
         contains: query,
         mode: 'insensitive',

@@ -14,7 +14,7 @@ const { ValidationError } = require('./middleware');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.send('Welcome to my app!');
+  res.send({ test: 'success!' });
 });
 
 router.get('/boards', async (req, res) => {

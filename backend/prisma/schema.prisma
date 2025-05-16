@@ -33,8 +33,6 @@ model Card {
 }
 
 enum CATEGORY {
-  ALL
-  RECENT
   CELEBRATION
   THANK_YOU
   INSPO

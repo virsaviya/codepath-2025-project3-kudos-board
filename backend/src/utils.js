@@ -7,7 +7,7 @@ const INSPO = 'INSPO';
 const FILTERS = [RECENT, CELEBRATION, THANK_YOU, INSPO];
 
 const validateQuery = ({ filter: _filter, query: _query }) => {
-  const filter = FILTERS.includes(_filter) ? _filter : ALL;
+  const filter = FILTERS.includes(_filter) ? _filter : '';
   const query = typeof _query === 'string' ? _query : '';
   return { filter, query };
 };

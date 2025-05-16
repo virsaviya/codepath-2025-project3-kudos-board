@@ -2,7 +2,8 @@
 
 Submitted by: **Virsaviya Efraim**
 
-Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
+Deployed Application (**required**):
+[Kudos Board Deployed Site](https://codepath-2025-project3-kudos-board.onrender.com)
 
 ### Walkthrough Video
 

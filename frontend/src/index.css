@@ -1,0 +1,40 @@
+:root {
+  --color-primary: rgb(0, 195, 133);
+  --color-primary-light: #80dabe;
+  --color-primary-dark: #09a875;
+  --color-dark-bg: #0f231d;
+  --layout-padding: 24px;
+}
+
+html,
+body {
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+select,
+input,
+button {
+  background-color: var(--color-primary);
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid var(--color-primary-dark);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+a {
+  text-decoration: none;
+  margin: 4px 8px;
+  color: black;
+}
+a:hover {
+  text-decoration: underline;
+}

@@ -11,12 +11,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Card {
+model Board {
   id            Int         @id @default(autoincrement())
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
   title         String
+  category      CATEGORY    @default(ALL)
+  author        String?
+  cards         Card[]
+}
+model Card {
+  id            Int         @id @default(autoincrement())
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
   message       String
   gif           String
   upvotes       Int
+  author        String?
+  boardId       Int
+  board         Board       @relation(fields: [boardId], references: [id], onDelete: Cascade)
+}
+
+enum CATEGORY {
+  ALL
+  RECENT
+  CELEBRATION
+  THANK_YOU
+  INSPIRATION
 }

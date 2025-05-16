@@ -1,14 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import Boards from './Boards';
-import Footer from './Footer';
-import Header from './Header';
-import Modal from './Modal';
+import Cards from './Cards';
+import Layout from './Layout';
+import NotFound from './NotFound';
 import { baseUrl } from '../config';
-
 import './App.css';
 
 function App() {
+  const [error, setError] = useState(null);
+  const [filter, setFilter] = useState(null);
+  const [query, setQuery] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [boards, setBoards] = useState(null);
+  const [cards, setCards] = useState(null);
+
   useEffect(() => {
     getBoards();
   }, []);
@@ -22,17 +29,13 @@ function App() {
   };
 
   return (
-    <>
-      <Header />
-      <main>
-        <Modal>
-          <div>modal body here</div>
-        </Modal>
-        <div>hello you beautiful world</div>
-        <Boards />
-      </main>
-      <Footer />
-    </>
+    <Routes>
+      <Route path='/' element={<Layout modalContent={'bar'} />}>
+        <Route index element={<Boards />} />
+        <Route path='/board' element={<Cards />} />
+        <Route path='*' element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 

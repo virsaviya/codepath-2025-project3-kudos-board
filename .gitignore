@@ -1,0 +1,20 @@
+**/node_modules/
+**/.env
+**/build/
+**/dist/
+**/logs/
+**/*.log
+
+# Prisma generated files
+**/prisma/generated/
+
+# IDE specific files
+.vscode/
+
+# MacOS system files
+.DS_Store
+
+# Optional npm cache
+.npm/
+.pnpm-store/
+.yarn/

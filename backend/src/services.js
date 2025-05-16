@@ -3,9 +3,16 @@ const prisma = new PrismaClient({
   // log: ['warn', 'error'],
 });
 
-const getBoards = async () => {
+const getBoards = async (filter, query) => {
   const boards = await prisma.board.findMany({
     include: { cards: true },
+    where: {
+      category: filter,
+      title: {
+        contains: query,
+        mode: 'insensitive',
+      },
+    },
   });
   return boards;
 };
@@ -71,27 +78,6 @@ const deleteCard = async (id) => {
   return deletedCard;
 };
 
-const searchBoards = async (query) => {
-  const boards = await prisma.board.findMany({
-    where: {
-      title: {
-        contains: query,
-        mode: 'insensitive',
-      },
-    },
-  });
-  return boards;
-};
-
-const filterBoards = async (filterBy) => {
-  const boards = await prisma.board.findMany({
-    where: {
-      category: filterBy,
-    },
-  });
-  return boards;
-};
-
 module.exports = {
   getBoards,
   getBoardById,
@@ -100,6 +86,4 @@ module.exports = {
   createCard,
   upvoteCard,
   deleteCard,
-  searchBoards,
-  filterBoards,
 };

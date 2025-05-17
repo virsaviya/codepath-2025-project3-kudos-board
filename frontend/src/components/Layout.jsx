@@ -9,7 +9,7 @@ import './Layout.css';
 const Layout = ({ modalContent }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [showModal, setShowModal] = useState(true); // @TODO
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     document.addEventListener('keydown', closeModal);

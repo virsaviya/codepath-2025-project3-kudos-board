@@ -26,20 +26,20 @@ walkthrough video)
 
 - [ ] **Home Page Display**
   - [ ] Home page includes the following features:
-    - [ ] Header
+    - [x] Header
     - [ ] Banner
     - [ ] Search bar
-    - [ ] List of boards
-    - [ ] Footer
+    - [x] List of boards
+    - [x] Footer
 - [ ] **Display Boards**
-  - [ ] Users can view a list of all boards in a grid view on the home page.
-  - [ ] For each board displayed, users can see:
-    - [ ] An image/gif
-    - [ ] A board title
+  - [x] Users can view a list of all boards in a grid view on the home page.
+  - [x] For each board displayed, users can see:
+    - [x] An image/gif
+    - [x] A board title
 - [ ] **Filter Boards**
   - [ ] Home page includes navigation bar, drop down, or some other mechanism
         which allows users to filter boards by the following categories:
-    - [ ] All/Home (displays all boards)
+    - [x] All/Home (displays all boards)
     - [ ] Recent (displays the 6 most recently created boards)
     - [ ] Celebration
     - [ ] Thank you
@@ -61,7 +61,7 @@ walkthrough video)
   - [ ] When all text is cleared from the text input field, all boards are
         displayed in a grid view
 - [ ] **View Board**
-  - [ ] Users can click on a board in the grid view to navigate to a new page
+  - [x] Users can click on a board in the grid view to navigate to a new page
         containing that board's details.
 - [ ] **Add New Board**
   - [ ] Users can create a new board on the home page.
@@ -73,9 +73,9 @@ walkthrough video)
         new board.
   - [ ] When the board is successfully created, it appears in the grid of
         boards.
-- [ ] **Delete Board**
-  - [ ] User can delete boards on the home page.
-  - [ ] When the board is deleted, the board disappears from the grid of boards.
+- [x] **Delete Board**
+  - [x] User can delete boards on the home page.
+  - [x] When the board is deleted, the board disappears from the grid of boards.
 
 ##### Board Page
 
@@ -107,75 +107,9 @@ walkthrough video)
   - [ ] When the user clicks the delete button for a card, the card disappears
         from the grid of cards.
 - [ ] **Deployment**
-  - [ ] Website is deployed via Render.
+  - [x] Website is deployed via Render.
   - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please
         use the deployed version of your website when creating your walkthrough.
-
-#### Stretch Features
-
-- [ ] **Comments**
-  - [ ] Users can add comments to cards.
-  - [ ] To successfully add a comment, users must specify a text message body.
-  - [ ] Users are given the option to specify the author of the comment.
-  - [ ] Users can view comments on card in a pop-up modal that displays the
-        card's:
-    - [ ] Text message
-    - [ ] Gif
-    - [ ] Author (if specified)
-    - [ ] A list of the card's comments and each comment's:
-      - [ ] Message body
-      - [ ] Author (if specified)
-  - [ ] Users can add multiple comments to a single card.
-- [ ] **Dark Mode**
-  - [ ] Users can toggle between light mode and dark mode using a button
-        displayed on the:
-    - [ ] Home Page
-    - [ ] Board Pages
-  - [ ] When the button is clicked, the color theme switches to the opposite of
-        the current mode.
-  - [ ] When dark mode is enabled:
-    - [ ] Text and icons use a light color
-    - [ ] The background uses a dark color
-    - [ ] Color contrast has at least a 4.5:1 ratio using this
-          [color contrast checker](https://webaim.org/resources/contrastchecker/)
-  - [ ] When light mode is enabled:
-    - [ ] Text and icons use a dark color
-    - [ ] The background uses a light color
-    - [ ] Color contrast has at least a 4.5:1 ratio using this
-          [color contrast checker](https://webaim.org/resources/contrastchecker/)
-  - [ ] The chosen mode (light or dark) persists when navigating from home page
-        to board pages and vice versa.
-  - [ ] When the user first visits the site the theme defaults to light mode.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process,
-        please use the
-        [color contrast checker](https://webaim.org/resources/contrastchecker/)
-        to demonstrate to the grading team that text and background colors on
-        your website have appropriate contrast in both light and dark mode. The
-        Contrast Ratio should be above 4.5:1 and should have a green box
-        surrounding it.
-- [ ] **Pinned Cards**
-  - [ ] Users can pin a card to the top of the board.
-  - [ ] A Pin button is displayed on each card.
-  - [ ] When the user clicks the Pin button of an unpinned card:
-    - [ ] The card moves to the top of the grid view for that board.
-    - [ ] There is some visual feedback to indicate a card's pin status (e.g., a
-          pin icon, a border highlight).
-    - [ ] The pin action is saved so that the card remains pinned after page
-          refreshes.
-  - [ ] When the user clicks the Pin button of a pinned card:
-    - [ ] The card returns to its original position in the grid based on its
-          creation time or to the end of the grid.
-    - [ ] The card's pin status (e.g., a pin icon or highlight) is removed.
-    - [ ] The unpin action is saved so that the card remains unpinned after page
-          refresh.
-  - [ ] Pinned cards always appear at the top of the board, above unpinned
-        cards.
-  - [ ] If multiple cards are pinned, they maintain their pinned order based on
-        the time they were pinned.
-    - [ ] More recent pins should appear first.
-- [ ] The pinned state of a card persists when:
-  - [ ] navigating away from and back to the board.
-  - [ ] refreshing the page.
 
 ### Reflection
 

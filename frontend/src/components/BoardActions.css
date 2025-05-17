@@ -1,0 +1,31 @@
+.actions {
+  display: flex;
+  margin-bottom: 16px;
+  border-bottom: 3px solid var(--color-primary);
+}
+
+.add,
+.search {
+  margin-right: 12px;
+}
+
+.search {
+  flex: 1;
+}
+
+.tab {
+  padding: 8px 16px;
+  background-color: var(--color-light-bg);
+  border: none;
+  border-radius: 0%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tab.active {
+  background-color: var(--color-primary);
+}
+
+.tab:hover {
+  background-color: var(--color-primary-dark);
+}

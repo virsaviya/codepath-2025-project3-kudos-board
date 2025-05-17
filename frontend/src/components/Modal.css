@@ -12,7 +12,7 @@
 }
 
 .modal {
-  background-color: rgb(210, 210, 210);
+  background-color: var(--color-light-bg);
   border: 1px solid black;
   border-radius: 4px;
   min-width: 300px;

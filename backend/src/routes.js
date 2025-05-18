@@ -75,7 +75,6 @@ router.post('/cards', async (req, res) => {
       author,
       boardId: parseInt(boardId),
     });
-    console.log(newCard);
     if (newCard) res.status(201).json(newCard);
     else res.status(404).json(`Failed to create a new card.`);
   } catch (error) {

@@ -1,16 +1,23 @@
 import { useMemo, useState } from 'react';
-import { useOutletContext, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import BoardActions from './BoardActions';
+import { ALL } from '../config';
 import { useFetch, useDelete } from '../hooks';
+import BoardActions from './BoardActions';
 import './Boards.css';
 
 const Boards = () => {
   const [options, setOptions] = useState({});
-  const [endpoint, setEndpoint] = useState('boards');
+  const [filter, setFilter] = useState(ALL);
+  const [query, setQuery] = useState('');
+
+  const endpoint = useMemo(() => {
+    const queryStr = query !== '' ? `query=${query}` : '';
+    const filterStr = filter !== ALL ? `filter=${filter}` : '';
+    return `boards${queryStr || filterStr ? `?${queryStr}${filterStr}` : ''}`;
+  }, [filter, query]);
 
   const navigate = useNavigate();
-  const { showModal } = useOutletContext();
   const { loading, error, data, fetchData } = useFetch(endpoint, options);
   const { deleteData } = useDelete();
 
@@ -32,14 +39,21 @@ const Boards = () => {
 
   const deleteBoard = async (e, id) => {
     e.stopPropagation();
-    console.log('deleting...', id);
     await deleteData(`boards/${id}`);
     await fetchData(endpoint, options);
   };
 
+  const handleSearch = (e) => {
+    setQuery(e.target.value);
+  };
+
+  const filterBoards = (filterBy) => {
+    setFilter(filterBy);
+  };
+
   return (
     <div className='boards'>
-      <BoardActions />
+      <BoardActions handleSearch={handleSearch} filterBoards={filterBoards} />
       <h2>aaaaaall a board the kudos train 🚂 🚂</h2>
       <div className='list'>{content}</div>
     </div>

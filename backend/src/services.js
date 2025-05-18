@@ -6,12 +6,12 @@ const prisma = new PrismaClient({
 });
 
 const getBoards = async (filter, query) => {
-  if (filter === RECENT) {
-    // recent logic here
-  }
-  const filterBy = filter !== '' ? { category: filter } : {};
+  const filterBy =
+    filter === '' || filter === RECENT ? {} : { category: filter };
+
   const boards = await prisma.board.findMany({
     include: { cards: true },
+    orderBy: { createdAt: 'desc' },
     where: {
       ...filterBy,
       title: {
@@ -20,7 +20,8 @@ const getBoards = async (filter, query) => {
       },
     },
   });
-  return boards;
+
+  return filter === RECENT ? boards.slice(0, 6) : boards;
 };
 
 const getBoardById = async (id) => {

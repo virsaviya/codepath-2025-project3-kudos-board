@@ -19,7 +19,6 @@ body {
 }
 
 select,
-input,
 button {
   background-color: var(--color-primary);
   cursor: pointer;
@@ -31,6 +30,20 @@ button {
 
 button:hover {
   background-color: var(--color-primary-dark);
+}
+
+input {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  border-radius: 4px;
+  padding: 8px;
+  cursor: text;
+  outline: none;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+input:focus {
+  outline: 2px solid var(--color-primary-light);
 }
 
 a {

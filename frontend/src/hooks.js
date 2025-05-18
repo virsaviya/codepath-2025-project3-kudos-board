@@ -16,7 +16,6 @@ export function useFetch(url, options = {}) {
       const resp = await fetch(mkUrl(url), options);
       if (!resp.ok) setError(`Error: ${resp.statusText}`);
       const parsed = await resp.json();
-      console.log('parsed...', parsed);
       setData(parsed);
     } catch (err) {
       setError(err.message);
@@ -47,7 +46,6 @@ export function useDelete() {
       });
       if (!resp.ok) setError(`Error: ${resp.statusText}`);
       const data = await resp.json();
-      console.log(data);
       return true;
     } catch (err) {
       setError(err.message);

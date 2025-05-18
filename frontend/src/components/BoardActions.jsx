@@ -1,33 +1,37 @@
 import { useState } from 'react';
 
+import { options } from '../config';
+import { useModalContext } from './Modal';
+import Form from './Form';
 import Search from './Search';
 import './BoardActions.css';
 
-const ALL = 'ALL';
-const RECENT = 'RECENT';
-const CELEBRATION = 'CELEBRATION';
-const THANKS = 'THANKS';
-const INSPO = 'INSPO';
-
-const options = [RECENT, ALL, CELEBRATION, THANKS, INSPO];
-
-const BoardActions = () => {
+const BoardActions = ({ handleSearch, filterBoards }) => {
+  const { openModal } = useModalContext();
   const [selected, setSelected] = useState(options[0]);
-  const handleSearch = (e) => {
-    console.log('searching...', e);
+
+  const handleTabClick = (option) => {
+    setSelected(option);
+    filterBoards(option);
   };
+
+  const handleAddClick = (e) => {
+    console.log('adding...');
+    openModal(<div>hello</div>, { title: 'Create Board' });
+  };
+
   return (
     <div className='actions'>
       {options.map((option) => (
         <button
           key={option}
           className={`tab ${selected === option ? 'active' : ''}`}
-          onClick={() => setSelected(option)}>
+          onClick={() => handleTabClick(option)}>
           {option}
         </button>
       ))}
-      <Search />
-      <button className='add'>
+      <Search handleSearch={handleSearch} />
+      <button className='add' onClick={handleAddClick}>
         <i className='fa-solid fa-plus'></i>
       </button>
     </div>

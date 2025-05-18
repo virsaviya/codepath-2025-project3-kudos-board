@@ -20,4 +20,5 @@ const validateCategory = (category) => {
 module.exports = {
   validateQuery,
   validateCategory,
+  RECENT,
 };

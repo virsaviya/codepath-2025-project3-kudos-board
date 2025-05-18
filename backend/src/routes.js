@@ -93,7 +93,7 @@ router.delete('/cards/:id', async (req, res) => {
   }
 });
 
-router.put('/cards/:id/upvote', async (req, res) => {
+router.post('/cards/:id/upvote', async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const updatedCard = await upvoteCard(id);

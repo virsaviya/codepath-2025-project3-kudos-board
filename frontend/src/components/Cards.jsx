@@ -1,16 +1,33 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { useFetch, useDelete } from '../hooks';
+import { useFetch, useDelete, usePost } from '../hooks';
 
 const Cards = () => {
   const [options, setOptions] = useState({});
   const { id: boardId } = useParams();
+  const endpoint = useMemo(() => `boards/${boardId}`, [boardId]);
 
-  const { loading, error, data, fetchData } = useFetch(
-    `boards/${boardId}`,
-    options,
+  const { loading, error, data, fetchData } = useFetch(endpoint, options);
+  const { deleteData } = useDelete();
+  const { postData } = usePost();
+
+  const handleUpvoteCard = useCallback(
+    async (e, cardId) => {
+      e.stopPropagation();
+      await postData(`cards/${cardId}/upvote`);
+      await fetchData(endpoint, options);
+    },
+    [endpoint, options],
   );
+
+  const handleDeleteCard =
+    (async (e, cardId) => {
+      e.stopPropagation();
+      await deleteData(`cards/${cardId}`);
+      await fetchData(endpoint, options);
+    },
+    [endpoint, options]);
 
   const content = useMemo(() => {
     if (!data && loading) return <div>loading...</div>;
@@ -22,9 +39,8 @@ const Cards = () => {
           message={message}
           gif={gif}
           upvotes={upvotes}
-          deleteCard={(e) => console.log('deleting card...')}
-          onUpvote={(e) => console.log('upvoting card...')}
-          // deleteCard={(e) => deleteCard(e, id)}
+          onUpvote={(e) => handleUpvoteCard(e, id)}
+          deleteCard={(e) => handleDeleteCard(e, id)}
         />
       ));
     else return <div>Oopsie.</div>;

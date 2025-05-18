@@ -27,7 +27,7 @@ const getBoards = async (filter, query) => {
 const getBoardById = async (id) => {
   const board = await prisma.board.findUnique({
     where: { id },
-    include: { cards: true },
+    include: { cards: { orderBy: { createdAt: 'desc' } } },
   });
   return board;
 };

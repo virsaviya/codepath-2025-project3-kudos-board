@@ -45,7 +45,6 @@ export function useDelete() {
         ...options,
       });
       if (!resp.ok) setError(`Error: ${resp.statusText}`);
-      const data = await resp.json();
       return true;
     } catch (err) {
       setError(err.message);
@@ -56,4 +55,31 @@ export function useDelete() {
   }, []);
 
   return { deleteData, loading, error };
+}
+
+export function usePost() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const postData = useCallback(async (url, options = {}) => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const resp = await fetch(mkUrl(url), {
+        method: 'POST',
+        ...options,
+      });
+      if (!resp.ok) setError(`Error: ${resp.statusText}`);
+      const data = await resp.json();
+      return data;
+    } catch (err) {
+      setError(err.message);
+      return false;
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  return { postData, loading, error };
 }

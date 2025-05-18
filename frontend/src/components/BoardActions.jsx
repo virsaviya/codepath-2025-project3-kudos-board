@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import { options } from '../config';
 import { useModalContext } from './Modal';
-import Form from './Form';
 import Search from './Search';
 import './BoardActions.css';
 

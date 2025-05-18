@@ -13,7 +13,7 @@ footer {
 header,
 footer {
   background-color: var(--color-dark-bg);
-  color: var(--color-primary-light);
+  color: var(--color-secondary-light);
   text-align: center;
 }
 

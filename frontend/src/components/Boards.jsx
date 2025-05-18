@@ -64,7 +64,7 @@ const BoardCard = ({ title, img, openBoard, deleteBoard }) => {
   const defaultImg = 'https://place-hold.it/300/09a875?text=Add Cards';
   return (
     <div className='card' onClick={openBoard}>
-      <button onClick={deleteBoard}>
+      <button className='delete' onClick={deleteBoard}>
         <i className='fa-solid fa-trash'></i>
       </button>
       <img alt={`image for ${title}`} src={img || defaultImg} />

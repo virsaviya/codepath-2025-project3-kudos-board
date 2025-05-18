@@ -27,15 +27,39 @@
 }
 
 .card button {
-  position: absolute;
-  right: 0;
-  bottom: 0;
   background-color: transparent;
   border: none;
-  color: var(--color-primary-dark);
 }
 
 .card button:hover {
+  background-color: transparent;
+}
+
+.card .upvote {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--color-light-text);
+  display: flex;
+  align-items: center;
+}
+
+.card .upvote button {
+  color: var(--color-secondary);
+  font-size: 2rem;
+}
+.card .upvote button:hover {
+  color: var(--color-secondary-dark);
+}
+
+.card .delete {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: var(--color-primary-dark);
+}
+
+.card .delete:hover {
   color: black;
 }
 

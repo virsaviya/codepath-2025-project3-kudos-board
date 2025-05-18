@@ -46,7 +46,7 @@ walkthrough video)
     - [x] Inspiration
   - [x] When a category is clicked, boards matching the specified category are
         displayed.
-- [ ] **Search Functionality**
+- [x] **Search Functionality**
   - [x] Users can use a search bar to search for boards by title on the home
         page.
   - [x] The search bar should include:
@@ -60,8 +60,8 @@ walkthrough video)
   - [x] User can delete all text from the text input field.
   - [x] When all text is cleared from the text input field, all boards are
         displayed in a grid view
-- [ ] **View Board**
-  - [ ] Users can click on a board in the grid view to navigate to a new page
+- [x] **View Board**
+  - [x] Users can click on a board in the grid view to navigate to a new page
         containing that board's details.
 - [ ] **Add New Board**
   - [ ] Users can create a new board on the home page.
@@ -79,14 +79,14 @@ walkthrough video)
 
 ##### Board Page
 
-- [ ] **Display Cards**
-  - [ ] For a given board, the board's page displays a list of all cards for
+- [s] **Display Cards**
+  - [x] For a given board, the board's page displays a list of all cards for
         that board in a grid view.
-  - [ ] For each card should displayed, users can see the card's:
-    - [ ] Message
-    - [ ] Gif
-    - [ ] Number of upvotes
-    - [ ] Delete button
+  - [x] For each card should displayed, users can see the card's:
+    - [x] Message
+    - [x] Gif
+    - [x] Number of upvotes
+    - [x] Delete button
 - [ ] **Add New Card**
   - [ ] Users can make a new card associated with the current board.
   - [ ] To successfully create a new card, users must specify the following:

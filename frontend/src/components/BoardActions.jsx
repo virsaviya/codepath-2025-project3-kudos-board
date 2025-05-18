@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import Search from './Search';
 import './BoardActions.css';
 
 const ALL = 'ALL';
@@ -12,13 +13,11 @@ const options = [RECENT, ALL, CELEBRATION, THANKS, INSPO];
 
 const BoardActions = () => {
   const [selected, setSelected] = useState(options[0]);
-
+  const handleSearch = (e) => {
+    console.log('searching...', e);
+  };
   return (
     <div className='actions'>
-      <button className='add'>Add Board</button>
-      <div className='search'>
-        <p>Searh here</p>
-      </div>
       {options.map((option) => (
         <button
           key={option}
@@ -27,6 +26,10 @@ const BoardActions = () => {
           {option}
         </button>
       ))}
+      <Search />
+      <button className='add'>
+        <i className='fa-solid fa-plus'></i>
+      </button>
     </div>
   );
 };

@@ -1,0 +1,26 @@
+.search {
+  flex: 1;
+  display: flex;
+  margin-left: var(--layout-padding);
+  border: 2px solid var(--color-primary);
+  border-radius: 6px;
+}
+
+.search input {
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding: 8px;
+  cursor: text;
+  outline: none;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.search button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: none;
+}

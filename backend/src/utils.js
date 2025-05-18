@@ -1,10 +1,11 @@
+/** these consts should be in sync with frontend/src/config */
 const ALL = 'ALL';
 const RECENT = 'RECENT';
 const CELEBRATION = 'CELEBRATION';
-const THANK_YOU = 'THANK_YOU';
-const INSPO = 'INSPO';
+const GRATITUDE = 'GRATITUDE';
+const INSPIRATION = 'INSPIRATION';
 
-const FILTERS = [RECENT, CELEBRATION, THANK_YOU, INSPO];
+const FILTERS = [RECENT, CELEBRATION, GRATITUDE, INSPIRATION];
 
 const validateQuery = ({ filter: _filter, query: _query }) => {
   const filter = FILTERS.includes(_filter) ? _filter : '';

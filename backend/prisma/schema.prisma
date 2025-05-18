@@ -34,6 +34,6 @@ model Card {
 
 enum CATEGORY {
   CELEBRATION
-  THANK_YOU
-  INSPO
+  GRATITUDE
+  INSPIRATION
 }

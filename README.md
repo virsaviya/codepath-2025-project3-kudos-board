@@ -79,7 +79,7 @@ walkthrough video)
 
 ##### Board Page
 
-- [s] **Display Cards**
+- [x] **Display Cards**
   - [x] For a given board, the board's page displays a list of all cards for
         that board in a grid view.
   - [x] For each card should displayed, users can see the card's:
@@ -87,11 +87,11 @@ walkthrough video)
     - [x] Gif
     - [x] Number of upvotes
     - [x] Delete button
-- [ ] **Add New Card**
+- [x] **Add New Card**
   - [x] Users can make a new card associated with the current board.
-  - [ ] To successfully create a new card, users must specify the following:
+  - [x] To successfully create a new card, users must specify the following:
     - [x] Text message (required).
-    - [ ] A gif found using the
+    - [x] A gif found using the
           [GIPHY API](https://developers.giphy.com/docs/api/) (required).
   - [x] Users are given the option to specify the author of the card.
   - [x] When the new card is successfully created, it appears in the grid of

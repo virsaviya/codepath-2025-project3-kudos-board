@@ -15,6 +15,7 @@ const BoardActions = ({ handleSearch, filterBoards, onSuccess }) => {
 
   return (
     <div className='actions'>
+      <AddButton onSuccess={onSuccess} />
       {options.map((option) => (
         <button
           key={option}
@@ -24,7 +25,6 @@ const BoardActions = ({ handleSearch, filterBoards, onSuccess }) => {
         </button>
       ))}
       <Search handleSearch={handleSearch} />
-      <AddButton onSuccess={onSuccess} />
     </div>
   );
 };

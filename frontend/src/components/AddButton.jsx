@@ -6,6 +6,8 @@ import { usePost } from '../hooks';
 import { useModalContext } from './Modal';
 import './AddButton.css';
 
+const API_KEY = import.meta.env.VITE_API_KEY;
+
 const AddButton = ({ onSuccess }) => {
   const { openModal, closeModal } = useModalContext();
   const { postData } = usePost();
@@ -21,10 +23,22 @@ const AddButton = ({ onSuccess }) => {
 
   const formRef = useRef({});
 
+  const fetchGif = async (q) => {
+    const defaultGif =
+      'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjI2OXVpbmU1aHNpeTczYWV4bDZja2NyaTZwb2k5djhjNzJkeDF0eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3oEduLzte7jSNmq4z6/giphy.gif';
+    const url = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${encodeURIComponent(
+      q,
+    )}&limit=1`;
+    const resp = await fetch(url);
+    const { data } = await resp.json();
+    return Array.isArray(data) ? data[0].images.fixed_width.url : defaultGif;
+  };
+
   const handleCreate = async () => {
     if (isBoard) {
-      const { message, gif, author } = formRef.current;
-      if (message && gif && boardId) {
+      const { message, author } = formRef.current;
+      const gif = await fetchGif(message);
+      if (message && boardId) {
         try {
           await postData('cards', {
             boardId,
@@ -84,8 +98,6 @@ const NewBoard = ({ formRef }) => {
 
   const updateData = (e) => {
     const { name, value } = e.target;
-    console.log(formRef.current, !('category' in formRef.current));
-    // if (!'category' in formRef.current) console.log('here');
     if (!('category' in formRef.current))
       formRef.current.category = CELEBRATION;
     if (name === TITLE) formRef.current.title = value;
@@ -113,14 +125,18 @@ const NewBoard = ({ formRef }) => {
 
 const NewCard = ({ formRef }) => {
   const MESSAGE = 'Message *';
-  const GIF = 'GIF *';
+  // const GIF = 'GIF *';
   const AUTHOR = 'Author';
-  const fields = [MESSAGE, GIF, AUTHOR];
+  const fields = [
+    MESSAGE,
+    // GIF,
+    AUTHOR,
+  ];
 
   const updateData = (e, field) => {
     const { value } = e.target;
     if (field === MESSAGE) formRef.current.message = value;
-    if (field === GIF) formRef.current.gif = value;
+    // if (field === GIF) formRef.current.gif = value;
     if (field === AUTHOR) formRef.current.author = value;
   };
   return (

@@ -61,7 +61,7 @@ export function usePost() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const postData = useCallback(async (url, options = {}) => {
+  const postData = useCallback(async (url, payload = {}) => {
     setLoading(true);
     setError(null);
 
@@ -69,7 +69,7 @@ export function usePost() {
       const resp = await fetch(mkUrl(url), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(options),
+        body: JSON.stringify(payload),
       });
       if (!resp.ok) setError(`Error: ${resp.statusText}`);
       const data = await resp.json();

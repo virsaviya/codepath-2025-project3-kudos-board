@@ -19,7 +19,6 @@
 }
 
 .actions .tab:last-of-type {
-  /* border: 3px solid red; */
   margin-right: var(--layout-padding);
 }
 

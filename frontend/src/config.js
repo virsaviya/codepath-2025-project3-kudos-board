@@ -10,5 +10,5 @@ export const CELEBRATION = 'CELEBRATION';
 export const GRATITUDE = 'GRATITUDE';
 export const INSPIRATION = 'INSPIRATION';
 
-export const options = [RECENT, ALL, CELEBRATION, GRATITUDE, INSPIRATION];
+export const options = [ALL, RECENT, CELEBRATION, GRATITUDE, INSPIRATION];
 export const categories = [CELEBRATION, GRATITUDE, INSPIRATION];

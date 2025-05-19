@@ -4,27 +4,7 @@
   position: relative;
   align-items: center;
   padding-left: calc(var(--layout-padding) * 3);
-}
-
-.add {
-  cursor: pointer;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: 50%;
-  font-size: 1.6rem;
-  width: calc(var(--layout-padding) * 2);
-  height: calc(var(--layout-padding) * 2);
-  transition: width 0.3s ease, height 0.3s ease;
-  z-index: 10;
-}
-
-.add:hover {
-  width: calc(var(--layout-padding) * 2.5);
-  height: calc(var(--layout-padding) * 2.5);
-  box-shadow: 0px 1px 31px -5px rgba(0, 0, 0, 0.82);
-  background-color: var(--color-primary);
+  /* flex-wrap: wrap; // @TODO */
 }
 
 .tab {

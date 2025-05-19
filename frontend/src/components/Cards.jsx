@@ -2,6 +2,7 @@ import { useState, useMemo, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { useFetch, useDelete, usePost } from '../hooks';
+import AddButton from './AddButton';
 
 const Cards = () => {
   const [options, setOptions] = useState({});
@@ -21,13 +22,15 @@ const Cards = () => {
     [endpoint, options],
   );
 
-  const handleDeleteCard =
-    (async (e, cardId) => {
-      e.stopPropagation();
-      await deleteData(`cards/${cardId}`);
-      await fetchData(endpoint, options);
-    },
-    [endpoint, options]);
+  const handleDeleteCard = async (e, cardId) => {
+    e.stopPropagation();
+    await deleteData(`cards/${cardId}`);
+    await fetchData(endpoint, options);
+  };
+
+  const handleAddSuccess = useCallback(() => {
+    fetchData(endpoint, options);
+  }, [endpoint]);
 
   const content = useMemo(() => {
     if (!data && loading) return <div>loading...</div>;
@@ -60,7 +63,8 @@ const Cards = () => {
   );
 
   return (
-    <div>
+    <div className='cards'>
+      <AddButton onSuccess={handleAddSuccess} />
       <div>{header || 'Welcome'}</div>
       <div className='list'>{content}</div>
     </div>

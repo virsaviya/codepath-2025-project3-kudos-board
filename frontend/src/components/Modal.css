@@ -47,7 +47,6 @@
 .modal .body {
   flex: 1;
   flex-direction: column;
-  align-items: center;
 }
 
 .modal .footer {

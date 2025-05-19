@@ -68,6 +68,7 @@ router.delete('/boards/:id', async (req, res) => {
 
 router.post('/cards', async (req, res) => {
   const { message, gif, author, boardId } = req.body;
+  if (!message || !gif || !boardId) throw new ValidationError('data');
   try {
     const newCard = await createCard({
       message,
@@ -96,6 +97,7 @@ router.delete('/cards/:id', async (req, res) => {
 router.post('/cards/:id/upvote', async (req, res) => {
   try {
     const id = parseInt(req.params.id);
+    if (!id) throw new ValidationError('id');
     const updatedCard = await upvoteCard(id);
     if (updatedCard) res.status(201).json(updatedCard);
     else res.status(404).json(`Failed to upvote card ${id}`);

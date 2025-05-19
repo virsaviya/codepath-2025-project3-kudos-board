@@ -1,0 +1,37 @@
+.add {
+  cursor: pointer;
+  position: absolute;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  width: calc(var(--layout-padding) * 2);
+  height: calc(var(--layout-padding) * 2);
+  transition: width 0.3s ease, height 0.3s ease;
+  z-index: 10;
+}
+
+.add:hover {
+  width: calc(var(--layout-padding) * 2.5);
+  height: calc(var(--layout-padding) * 2.5);
+  box-shadow: 0px 1px 31px -5px rgba(0, 0, 0, 0.82);
+  background-color: var(--color-primary);
+}
+
+.cards {
+  border: 3px dashed magenta;
+  position: relative;
+}
+
+.actions .add {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.cards .add {
+  top: 0;
+  right: 0;
+}
+
+input {
+  margin-bottom: calc(var(--layout-padding) / 2);
+}

@@ -1,22 +1,16 @@
 import { useState } from 'react';
 
 import { options } from '../config';
-import { useModalContext } from './Modal';
+import AddButton from './AddButton';
 import Search from './Search';
 import './BoardActions.css';
 
 const BoardActions = ({ handleSearch, filterBoards }) => {
-  const { openModal } = useModalContext();
   const [selected, setSelected] = useState(options[0]);
 
   const handleTabClick = (option) => {
     setSelected(option);
     filterBoards(option);
-  };
-
-  const handleAddClick = (e) => {
-    console.log('adding...');
-    openModal(<div>hello</div>, { title: 'Create Board' });
   };
 
   return (
@@ -30,9 +24,7 @@ const BoardActions = ({ handleSearch, filterBoards }) => {
         </button>
       ))}
       <Search handleSearch={handleSearch} />
-      <button className='add' onClick={handleAddClick}>
-        <i className='fa-solid fa-plus'></i>
-      </button>
+      <AddButton />
     </div>
   );
 };

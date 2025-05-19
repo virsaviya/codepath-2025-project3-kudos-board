@@ -35,6 +35,11 @@ button:hover {
   background-color: var(--color-primary-dark);
 }
 
+label {
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+
 input {
   background-color: transparent;
   border: 2px solid var(--color-primary);

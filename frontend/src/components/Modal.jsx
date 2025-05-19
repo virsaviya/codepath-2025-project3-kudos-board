@@ -14,7 +14,7 @@ const ModalProvider = ({ children }) => {
   const [content, setContent] = useState(null);
   const [config, setConfig] = useState({
     title: 'Create New',
-    // actions: [{ btn: 'Create', onClick: () => console.log('Creating...') }],
+    actions: null,
   });
 
   const openModal = useCallback((newContent, newConfig = {}) => {
@@ -31,10 +31,11 @@ const ModalProvider = ({ children }) => {
   }, []);
 
   const closeModal = useCallback((e) => {
-    const isCloseButton = e.target.closest('.close');
+    const isCloseButton = e?.target.closest('.modal .header .close');
+    const isCancelButton = e?.target.closest('.modal .footer .cancel');
     const isOutsideClick = e?.target.dataset.modalContainer === 'true';
     const isEscKey = e?.key === 'Escape';
-    if (isOutsideClick || isCloseButton || isEscKey) {
+    if (!e || isOutsideClick || isCloseButton || isCancelButton || isEscKey) {
       setContent(null);
       setConfig({});
       setShowModal(false);
@@ -59,7 +60,7 @@ const ModalRenderer = () => {
   );
 };
 
-const Modal = ({ closeModal, title = 'Create', children }) => {
+const Modal = ({ closeModal, title = 'Create', actions, children }) => {
   return (
     <div
       className='modal-container'
@@ -73,7 +74,7 @@ const Modal = ({ closeModal, title = 'Create', children }) => {
           <div>{title}</div>
         </div>
         <div className='body'>{children}</div>
-        <div className='footer'>Actions here</div>
+        <div className='footer'>{actions}</div>
       </div>
     </div>
   );

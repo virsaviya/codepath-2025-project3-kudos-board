@@ -68,7 +68,8 @@ export function usePost() {
     try {
       const resp = await fetch(mkUrl(url), {
         method: 'POST',
-        ...options,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(options),
       });
       if (!resp.ok) setError(`Error: ${resp.statusText}`);
       const data = await resp.json();

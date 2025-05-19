@@ -7,14 +7,7 @@ Deployed Application (**required**):
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below,
-`ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and
-animates when viewing this README. Ensure your walkthrough showcases the
-presence and/or functionality of all features you implemented above (check them
-off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL
-INSTRUCTIONS** checkboxes listed above to ensure graders see the full
-functionality of your website! (🚫 Remove this paragraph after adding
-walkthrough video)
+- [on loom](https://www.loom.com/share/c948203e69004287be761fafae209a0c?sid=8dc3231a-a20d-4b05-a25f-16258b6a8a940)
 
 `ADD_EMBEDDED_CODE_HERE`
 
@@ -106,9 +99,9 @@ walkthrough video)
   - [x] Users can delete cards.
   - [x] When the user clicks the delete button for a card, the card disappears
         from the grid of cards.
-- [ ] **Deployment**
+- [x] **Deployment**
   - [x] Website is deployed via Render.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please
         use the deployed version of your website when creating your walkthrough.
 
 ### Reflection

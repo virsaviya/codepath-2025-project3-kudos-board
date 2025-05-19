@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { ALL } from '../config';
@@ -51,9 +51,17 @@ const Boards = () => {
     setFilter(filterBy);
   };
 
+  const handleAddSuccess = useCallback(() => {
+    fetchData(endpoint, options);
+  }, [endpoint]);
+
   return (
     <div className='boards'>
-      <BoardActions handleSearch={handleSearch} filterBoards={filterBoards} />
+      <BoardActions
+        handleSearch={handleSearch}
+        filterBoards={filterBoards}
+        onSuccess={handleAddSuccess}
+      />
       <h2>aaaaaall a board the kudos train 🚂 🚂</h2>
       <div className='list'>{content}</div>
     </div>

@@ -17,7 +17,6 @@
 }
 
 .cards {
-  border: 3px dashed magenta;
   position: relative;
 }
 
@@ -30,8 +29,4 @@
 .cards .add {
   top: 0;
   right: 0;
-}
-
-input {
-  margin-bottom: calc(var(--layout-padding) / 2);
 }

@@ -14,7 +14,7 @@ const validateQuery = ({ filter: _filter, query: _query }) => {
 };
 
 const validateCategory = (category) => {
-  return FILTERS.includes(category) ? category : ALL;
+  return FILTERS.includes(category) ? category : CELEBRATION;
 };
 
 module.exports = {

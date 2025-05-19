@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { useMemo, useState, useRef } from 'react';
 
-import { categories } from '../config';
+import { categories, CELEBRATION } from '../config';
 import { usePost } from '../hooks';
 import { useModalContext } from './Modal';
 import './AddButton.css';
@@ -22,19 +22,32 @@ const AddButton = ({ onSuccess }) => {
   const formRef = useRef({});
 
   const handleCreate = async () => {
-    const { message, gif, author } = formRef.current;
-    if (message && gif && boardId) {
-      try {
-        await postData('cards', {
-          boardId,
-          message,
-          gif,
-          author,
-        });
-        closeModal();
-        if (onSuccess) onSuccess();
-      } catch (err) {
-        console.error('Error posting data', err);
+    if (isBoard) {
+      const { message, gif, author } = formRef.current;
+      if (message && gif && boardId) {
+        try {
+          await postData('cards', {
+            boardId,
+            message,
+            gif,
+            author,
+          });
+          closeModal();
+          if (onSuccess) onSuccess();
+        } catch (err) {
+          console.error('Error adding card', err);
+        }
+      }
+    } else {
+      const { title, category, gif } = formRef.current;
+      if (title && category) {
+        try {
+          await postData('boards', { title, category, gif });
+          closeModal();
+          if (onSuccess) onSuccess();
+        } catch (err) {
+          console.error('Error adding board', err);
+        }
       }
     }
   };
@@ -64,13 +77,38 @@ const AddButton = ({ onSuccess }) => {
   );
 };
 
-const NewBoard = () => {
-  const [data, setData] = useState({
-    title: '',
-    category: categories[0],
-    author: '',
-  });
-  return <>new board</>;
+const NewBoard = ({ formRef }) => {
+  const TITLE = 'Title *';
+  const CATEGORY = 'Category *';
+  const AUTHOR = 'Author';
+
+  const updateData = (e) => {
+    const { name, value } = e.target;
+    console.log(formRef.current, !('category' in formRef.current));
+    // if (!'category' in formRef.current) console.log('here');
+    if (!('category' in formRef.current))
+      formRef.current.category = CELEBRATION;
+    if (name === TITLE) formRef.current.title = value;
+    if (name === CATEGORY) formRef.current.category = value;
+    if (name === AUTHOR) formRef.current.author = value;
+  };
+
+  return (
+    <>
+      <label htmlFor='title'>Title</label>
+      <input onChange={updateData} type='text' id={TITLE} name={TITLE} />
+      <label htmlFor='category'>Category</label>
+      <select onChange={updateData} id={CATEGORY} name={CATEGORY}>
+        {categories.map((c) => (
+          <option key={c} value={c}>
+            {c}
+          </option>
+        ))}
+      </select>
+      <label htmlFor='author'>Author</label>
+      <input onChange={updateData} type='text' id={AUTHOR} name={AUTHOR} />
+    </>
+  );
 };
 
 const NewCard = ({ formRef }) => {

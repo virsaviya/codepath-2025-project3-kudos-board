@@ -5,7 +5,7 @@ import AddButton from './AddButton';
 import Search from './Search';
 import './BoardActions.css';
 
-const BoardActions = ({ handleSearch, filterBoards }) => {
+const BoardActions = ({ handleSearch, filterBoards, onSuccess }) => {
   const [selected, setSelected] = useState(options[0]);
 
   const handleTabClick = (option) => {
@@ -24,7 +24,7 @@ const BoardActions = ({ handleSearch, filterBoards }) => {
         </button>
       ))}
       <Search handleSearch={handleSearch} />
-      <AddButton />
+      <AddButton onSuccess={onSuccess} />
     </div>
   );
 };

@@ -63,15 +63,15 @@ walkthrough video)
 - [x] **View Board**
   - [x] Users can click on a board in the grid view to navigate to a new page
         containing that board's details.
-- [ ] **Add New Board**
-  - [ ] Users can create a new board on the home page.
-  - [ ] When creating a new board, users can specify the:
-    - [ ] Title (required)
-    - [ ] Category (required)
-    - [ ] Author (optional)
-  - [ ] Items listed as required above must have a value to succesffuly create a
+- [x] **Add New Board**
+  - [x] Users can create a new board on the home page.
+  - [x] When creating a new board, users can specify the:
+    - [x] Title (required)
+    - [x] Category (required)
+    - [x] Author (optional)
+  - [x] Items listed as required above must have a value to succesffuly create a
         new board.
-  - [ ] When the board is successfully created, it appears in the grid of
+  - [x] When the board is successfully created, it appears in the grid of
         boards.
 - [x] **Delete Board**
   - [x] User can delete boards on the home page.
@@ -88,23 +88,23 @@ walkthrough video)
     - [x] Number of upvotes
     - [x] Delete button
 - [ ] **Add New Card**
-  - [ ] Users can make a new card associated with the current board.
+  - [x] Users can make a new card associated with the current board.
   - [ ] To successfully create a new card, users must specify the following:
-    - [ ] Text message (required).
+    - [x] Text message (required).
     - [ ] A gif found using the
           [GIPHY API](https://developers.giphy.com/docs/api/) (required).
-  - [ ] Users are given the option to specify the author of the card.
-  - [ ] When the new card is successfully created, it appears in the grid of
+  - [x] Users are given the option to specify the author of the card.
+  - [x] When the new card is successfully created, it appears in the grid of
         cards.
-- [ ] **Upvote Card**
-  - [ ] Users can upvote a card.
-  - [ ] Update the vote count on the card tile when a user clicks the upvote
+- [x] **Upvote Card**
+  - [x] Users can upvote a card.
+  - [x] Update the vote count on the card tile when a user clicks the upvote
         icon.
-  - [ ] When the upvote icon is clicked the upvote count increases by 1.
-  - [ ] A user can upvote a card multiple times.
-- [ ] **Delete Card**
-  - [ ] Users can delete cards.
-  - [ ] When the user clicks the delete button for a card, the card disappears
+  - [x] When the upvote icon is clicked the upvote count increases by 1.
+  - [x] A user can upvote a card multiple times.
+- [x] **Delete Card**
+  - [x] Users can delete cards.
+  - [x] When the user clicks the delete button for a card, the card disappears
         from the grid of cards.
 - [ ] **Deployment**
   - [x] Website is deployed via Render.

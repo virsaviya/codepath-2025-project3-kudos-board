@@ -40,10 +40,12 @@ label {
   margin-bottom: 4px;
 }
 
+select,
 input {
   background-color: transparent;
   border: 2px solid var(--color-primary);
   border-radius: 4px;
+  margin-bottom: calc(var(--layout-padding) / 2);
   padding: 8px;
   cursor: text;
   outline: none;

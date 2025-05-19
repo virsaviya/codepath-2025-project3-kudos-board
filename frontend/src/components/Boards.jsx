@@ -12,9 +12,13 @@ const Boards = () => {
   const [query, setQuery] = useState('');
 
   const endpoint = useMemo(() => {
-    const queryStr = query !== '' ? `query=${query}` : '';
-    const filterStr = filter !== ALL ? `filter=${filter}` : '';
-    return `boards${queryStr || filterStr ? `?${queryStr}${filterStr}` : ''}`;
+    const params = new URLSearchParams();
+
+    if (query) params.set('query', query);
+    if (filter !== ALL) params.set('filter', filter);
+
+    const queryString = params.toString();
+    return `boards${queryString ? `?${queryString}` : ''}`;
   }, [filter, query]);
 
   const navigate = useNavigate();
